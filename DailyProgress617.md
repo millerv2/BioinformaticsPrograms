@@ -14,7 +14,7 @@ I learned how to link up Visual Studio Code, the Github desktop version and Gith
 ## Oxford Nanopore Transcriptomics Pipeline Review 
 Spent some more time on the Oxford Nanopore tech website, looking at the different sequencing machines, as well as some of the associated publications and documentation. 
 
-### Some publications I looked at:
+### Some publications I looked at today:
 
 #### Reviews:
 
