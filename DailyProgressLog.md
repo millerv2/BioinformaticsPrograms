@@ -11,7 +11,7 @@ https://www.youtube.com/watch?v=RGOj5yH7evk
 
 I learned how to link up Visual Studio Code, the Github desktop version and Github in the browser. I created a sample repository and wrote this md file in VSC and then added and commmited the changes on my local device and pushed them to the repository on Github.
 
-## Oxford Nanopore Website Exploration
+## Oxford Nanopore Website Exploration:
 Spent some more time on the Oxford Nanopore tech website, looking at the different sequencing machines, as well as some of the associated publications and documentation. 
 
 ### Some publications I looked at today:
