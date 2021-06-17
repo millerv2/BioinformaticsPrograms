@@ -1,8 +1,8 @@
 # Daily Progress 6/17/21
 
 ## Github
-Today, I signed up for a Github account and looked at several tutorials on Youtube to familiarize myself with its working, learning Git commands like clone, add, commit, push, and pull.
-
+Today, I signed up for a Github account and looked at several tutorials on Youtube to familiarize myself with its workings, learning Git commands like clone, add, commit, push, and pull.
+l
 Two really good guides that I found are here for reference:
 
 https://www.youtube.com/watch?v=iv8rSLsi1xo
@@ -31,3 +31,4 @@ https://academic.oup.com/gigascience/article/8/8/giz104/5552683?login=true
 
 https://www.nature.com/articles/sdata2018266
 
+Today I also registered for an account on the NCI's High performance computing cluster, Biowulf, and completed several different logistic/training tasks related to onboarding.
