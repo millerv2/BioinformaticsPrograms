@@ -1,4 +1,4 @@
-# Tasks
+# Daily Progress 6/17/21
 
 ## Github
 Today, I signed up for a Github account and looked at several tutorials on Youtube to familiarize myself with its working, learning Git commands like clone, add, commit, push, and pull.
@@ -13,3 +13,18 @@ I learned how to link up Visual Studio Code, the Github desktop version and Gith
 
 ## Oxford Nanopore Transcriptomics Pipeline Review 
 Spent some more time on the Oxford Nanopore tech website, looking at the different sequencing machines, as well as some of the associated publications and documentation. 
+
+### Some publications I looked at:
+
+#### Reviews:
+
+https://iopscience.iop.org/article/10.1088/0957-4484/26/7/074003/pdf
+
+https://onlinelibrary.wiley.com/doi/epdf/10.1111/dgd.12608
+
+https://www.nature.com/articles/nbt0412-295
+
+https://academic.oup.com/gigascience/article/8/8/giz104/5552683?login=true
+
+https://www.nature.com/articles/sdata2018266
+
