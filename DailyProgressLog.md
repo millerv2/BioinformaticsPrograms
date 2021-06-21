@@ -32,3 +32,24 @@ https://academic.oup.com/gigascience/article/8/8/giz104/5552683?login=true
 https://www.nature.com/articles/sdata2018266
 
 Today I also registered for an account on the NCI's High performance computing cluster, Biowulf, and completed several different logistic/training tasks related to onboarding.
+
+# Daily Progress 6/21/21
+
+## Literature Reading
+
+I continued to look over some of the ONT research papers from last week and also found a few more papers of interest:
+
+
+
+
+
+
+## Biowulf HPC Set-up and Tutorial
+Over the weekend my Biowulf account was approved with username millerv2 and my password being the same as my NIH password. To familiarize myself with Biowulf, I worked through the introductory course here: 
+https://hpc.nih.gov/training/intro_biowulf/ 
+
+Information about the HPC systems at the NIH:
+https://hpc.nih.gov
+
+
+
