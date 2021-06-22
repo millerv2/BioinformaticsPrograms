@@ -39,17 +39,39 @@ Today I also registered for an account on the NCI's High performance computing c
 
 I continued to look over some of the ONT research papers from last week and also found a few more papers of interest:
 
+https://www.frontiersin.org/articles/10.3389/fgene.2020.00606/full
 
+https://link.springer.com/protocol/10.1007%2F978-1-4939-7834-2_6
 
-
+https://pubmed.ncbi.nlm.nih.gov/31740818/
 
 
 ## Biowulf HPC Set-up and Tutorial
 Over the weekend my Biowulf account was approved with username millerv2 and my password being the same as my NIH password. To familiarize myself with Biowulf, I worked through the introductory course here: 
 https://hpc.nih.gov/training/intro_biowulf/ 
 
+I completed the Linux/Bash familiarity quiz and scored a 9/10, I may want to check out some of the Linux tutorials here: 
+
+https://hpc.nih.gov/training/index.php#linux_tutorials
+
 Information about the HPC systems at the NIH:
 https://hpc.nih.gov
+
+I worked through most of the introductory Biowulf lectures on the hpc.nih page and successfully logged onto Biowulf login node. I also wrote a sample shell script and submitted the job for execution on a compute node, and tracked its progress with squeue -u millerv2. It successfuly ran.
+
+# Daily Progress 6/22/21
+
+## Literature Reading
+I continued to read up more on Oxford Nanopore Technologies applications in transcriptomics work, and found some interesting papers:
+
+https://pubmed.ncbi.nlm.nih.gov/30949200/
+
+https://pubmed.ncbi.nlm.nih.gov/31439691/
+
+https://pubmed.ncbi.nlm.nih.gov/29334379/
+
+https://pubmed.ncbi.nlm.nih.gov/32536962/
+
 
 
 
