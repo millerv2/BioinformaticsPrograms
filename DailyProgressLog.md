@@ -72,6 +72,14 @@ https://pubmed.ncbi.nlm.nih.gov/29334379/
 
 https://pubmed.ncbi.nlm.nih.gov/32536962/
 
+## Biowulf
+I went through the remainder of the Biowulf tutorials on the hpc.nih webpage and also checked out a few of the Linux tutorials. 
+
+## Github Transciptomics Pipeline Documentation Review
+Today I also read through most of the pipeliner documentation here and began to look at the demos and run through them as practice:
+
+https://ccbr.github.io/pipeliner-docs/RNA-seq/Theory-and-practical-guide-for-RNA-seq/
+
 
 
 
