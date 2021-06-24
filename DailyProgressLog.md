@@ -80,6 +80,20 @@ Today I also read through most of the pipeliner documentation here and began to 
 
 https://ccbr.github.io/pipeliner-docs/RNA-seq/Theory-and-practical-guide-for-RNA-seq/
 
+## Snakemake
+
+I visited the Snakemake website and went through some of the documentation, and read through the referenced paper here:
+https://f1000research.com/articles/10-33/v1
+
+I also checked out a few Youtube video tutorials on Snakemake. Some were more helpful than others as introductions. Some good ones I found are here:
+
+https://www.youtube.com/watch?v=NNPBDOBHlxo
+
+https://www.youtube.com/watch?v=AZSJKNvkRcg
+
+Tomorrow I plan on going through the Snakemake tutorial on the Snakemake website and also taking a look at the Snakemake files on the RNA-seq repo.
+
+
 
 
 
