@@ -114,7 +114,18 @@ I also ran through the complete Snakmake tutorial/guide on the website here:
 https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html
 
 
-# Daily Progress 6/24
+# Daily Progress 6/25
+
+This morning I continued to look through and try to understand all the working parts of the 4USeq repository here:
+
+https://github.com/RBL-NCI/4SUseq
+
+I also had a very helpful introductory session with Skyler to help me get further acquainted with Snakemake and how he utilizes it in his work. He helped orient me to the various directories, files, and working parts of his repository here: 
+
+https://github.com/CCBR/RNA-seek
+
+We talked about how it might be a good idea to use this as some sort of template for a simple Snakemake pipeline I develop, maybe with just a QC and trimming step for ONT RNA-seq reads.
+
 
 
 
