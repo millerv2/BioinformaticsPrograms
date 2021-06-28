@@ -129,6 +129,6 @@ We talked about how it might be a good idea to use this as some sort of template
 # Daily Progress 6/28/21
 
 ## Review
-This morning I figured it would be prudent to start of the week by just reviewing some of what I've been learning the past week and a half, from how ONT sequencers work and how the data is processed, to the workings of Github, the Biowulf HPC, and Snakemake. I've been keeping a notebook each day on my daily task so I've just reviewed this over to tie up any loose ends. 
+This morning I figured it would be prudent to start off the week by just reviewing some of what I've been learning the past week and a half, from how ONT sequencers work and how the data is processed, to the workings of Github, the Biowulf HPC, and Snakemake. I've been keeping a notebook each day on my daily task so I've just reviewed this over to tie up any loose ends. 
 
 
