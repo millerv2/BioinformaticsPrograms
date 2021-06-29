@@ -143,5 +143,11 @@ https://hpc.nih.gov/apps/snakemake.html
 I then spent a good bit of time looking at the repo Skyler showed me last week to understand all its working parts:
 
 https://github.com/CCBR/RNA-seek/blob/main/workflow/Snakefile
+ 
+# Daily Progress 6/29/21
+
+Good video reviewing VS code and Github connectivity:
+https://www.youtube.com/watch?v=Fk12ELJ9Bww
+
 
 
