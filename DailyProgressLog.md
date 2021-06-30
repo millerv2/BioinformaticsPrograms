@@ -185,5 +185,5 @@ https://www.biorxiv.org/content/10.1101/2021.04.21.440736v1.full.pdf
 
 The next few steps are to add trimming and second fastqc rules to my sample Snakemake workflow and run it on the cluster, then download some data from the nanoseq github repo and start experimenting with Nanoplot.
 
-
+## 
 
