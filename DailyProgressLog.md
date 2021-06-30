@@ -173,7 +173,7 @@ Spent a lot time looking through these Snakemake workflows:
 3) Then, to run the workflow, we run snakemake --cores 1 --use-envmodules
 4) What if some rules of the workflow require Conda use (not pre-installed on Cluster) and some can use modules?
 
-## Steps Going Forward.
+## Steps Going Forward:
 
 We discussed the overall vision for this internship which is to reproduce the following workflow using Snakemake:
 
