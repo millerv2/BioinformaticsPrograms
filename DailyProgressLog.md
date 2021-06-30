@@ -149,5 +149,41 @@ https://github.com/CCBR/RNA-seek/blob/main/workflow/Snakefile
 Good video reviewing VS code and Github connectivity:
 https://www.youtube.com/watch?v=Fk12ELJ9Bww
 
+Spent a lot time looking through these Snakemake workflows:
+
+
+
+# Daily Progress 6/30/21
+
+## Meeting Review:
+ 
+ To transfer files from current directory to home directory on cluster use:
+ $ scp <file> helix.nih.gov:~/
+
+ Can also use $ scp -r <directory> helix.nih.gov:~/ to transfer a directory.
+
+ ## Running Snakemake on Cluster.
+
+ 1) Sign in, and load snakemake (module load Snakemake)
+ 2) Instead of creating + activating an environment in Conda using a .yaml file with the conda directive and using --use-Conda when we run Snakemake, we specify modules directly for each rule with an envmodules directive in the rule like this which specifies the version for use:
+ 
+    envmodules:
+        "fastqc/0.11.9"
+
+3) Then, to run the workflow, we run snakemake --cores 1 --use-envmodules
+4) What if some rules of the workflow require Conda use (not pre-installed on Cluster) and some can use modules?
+
+## Steps Going Forward.
+
+We discussed the overall vision for this internship which is to reproduce the following workflow using Snakemake:
+
+https://github.com/nf-core/nanoseq/blob/master/README.md
+
+The paper describing the workflow and background is here: 
+
+https://www.biorxiv.org/content/10.1101/2021.04.21.440736v1.full.pdf
+
+The next few steps are to add trimming and second fastqc rules to my sample Snakemake workflow and run it on the cluster, then download some data from the nanoseq github repo and start experimenting with Nanoplot.
+
 
 
