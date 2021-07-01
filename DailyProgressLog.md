@@ -205,6 +205,12 @@ https://github.com/millerv2/SimpleSnakemakeWorkflow/blob/main/snakemake-tutorial
 
 The workflow ran successfully on an interactive node and I pushed the output folders with the output files to github so they are there as well in their specified directories.
 
+I foresee that in the next workflow I plan on running that some of the programs/tools I'll need are pre-installed on Biowulf and some of them are not and will require me to use conda to create + activate environments with the proper packages. For reference, the packages that the Bioconda channel has are here:
+
+https://bioconda.github.io/conda-package_index.html
+
+
+
 
 
 
