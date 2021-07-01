@@ -185,5 +185,29 @@ https://www.biorxiv.org/content/10.1101/2021.04.21.440736v1.full.pdf
 
 The next few steps are to add trimming and second fastqc rules to my sample Snakemake workflow and run it on the cluster, then download some data from the nanoseq github repo and start experimenting with Nanoplot.
 
-## 
+# Daily Progress 7/1/21
+ 
+ ## Sample Snakemake Workflow
+
+ I continued to write a simple Snakemake workflow that runs QC with FastQC on raw fq data, trims/filters the reads with cutadapt, and then re-reruns FastQC on the trimmed fastq files.  I took a look at the Cutadapt documentation here before writing my trim rule in the Snakefile:
+
+ https://cutadapt.readthedocs.io/en/stable/guide.html
+
+ I then wrote another rule to perform fastQC a second time on the trimmed reads and compared the html reports. It looks like trimming the reads helped to address several quality concern issues.
+
+ I went over this simple workflow briefly with Skyler. The workflow is on Github here:
+
+https://github.com/millerv2/SimpleSnakemakeWorkflow/blob/main/snakemake-tutorial/
+
+And the Snakefile is here:
+
+https://github.com/millerv2/SimpleSnakemakeWorkflow/blob/main/snakemake-tutorial/snakefile
+
+The workflow ran successfully on an interactive node and I pushed the output folders with the output files to github so they are there as well in their specified directories.
+
+
+
+
+
+
 
