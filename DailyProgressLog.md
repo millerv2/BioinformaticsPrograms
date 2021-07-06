@@ -235,6 +235,22 @@ https://hpc.nih.gov/docs/transfer.html
 
 This transfer took several hours, but I then created a subdirectory in user/data called A549 samples and moved all the lung samples into there.
 
+# Daily Progress 7/6/21
+
+This morning I spent sometime reviewing the documentation for Nanoplot, a plotting tool for long read sequencing data, on the README page here: 
+
+https://github.com/wdecoster/NanoPlot
+
+Nanoplot takes as input long-read fq files (can be compressed) and produces a statistical summary, number of plots, and an html summary file.
+
+To first exploring this tool, I did it locally by creating and activating a Conda environment that loaded 
+in Nanoplot 1.38.
+
+I then ran the following Nanoplot command on the command line:
+
+$ Nanoplot -o summary-plots-log-transformed --fastq /Users/millerv2/Desktop/A549samples/SGNex_A549_directcDNA_replicate1_run3.fastq.gz /Users/millerv2/Desktop/A549samples/SGNex_A549_directcDNA_replicate2_run1.fastq.gz
+
+The results written to the output directory summary-plots-log-transformed included several different plots and summaries for sequencing quality control.
 
 
 
