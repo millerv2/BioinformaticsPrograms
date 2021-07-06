@@ -209,6 +209,29 @@ I foresee that in the next workflow I plan on running that some of the programs/
 
 https://bioconda.github.io/conda-package_index.html
 
+I spent some time looking at the nano seq workflow here:
+
+https://github.com/nf-core/nanoseq/blob/master/README.md
+
+# Daily Progress 7/2/21
+
+It looks like the authors already performed the basecalling and/or demultiplexing step, so I went right ahead and downloaded a few of the fq files from the Singapore Nanopore Expression project here:
+
+https://github.com/GoekeLab/sg-nex-data
+
+To start off, I downloaded fq files for PCR-cDNA sequencing, direct cDNA sequencing, and direct native RNA sequencing for lung cancer cell line (A549) samples here:
+
+https://github.com/GoekeLab/sg-nex-data
+
+For each of these sequencing techniques I downloaded at least 3 replicates, and placed all these .fq files in a directory on my Desktop called A549samples. 
+
+I then transferred this directory with all these files to the cluster using scp with recursion:
+
+$ scp -r A549samples/ helix.nih.gov:/data/$USER/samples
+
+This took a while to transfer, but I then created a subdirectory in user/data called A549 samples and moved all the lung samples into there.
+
+
 
 
 
