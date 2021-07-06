@@ -229,9 +229,11 @@ I then transferred this directory with all these files to the cluster using scp 
 
 $ scp -r A549samples/ helix.nih.gov:/data/$USER/samples
 
-This took a while to transfer, but I then created a subdirectory in user/data called A549 samples and moved all the lung samples into there.
+See here for review on transferring data to/from the cluster: 
 
+https://hpc.nih.gov/docs/transfer.html
 
+This transfer took several hours, but I then created a subdirectory in user/data called A549 samples and moved all the lung samples into there.
 
 
 
