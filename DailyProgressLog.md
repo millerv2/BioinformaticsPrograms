@@ -233,7 +233,7 @@ See here for review on transferring data to/from the cluster:
 
 https://hpc.nih.gov/docs/transfer.html
 
-This transfer took several hours, but I then created a subdirectory in user/data called A549 samples and moved all the lung samples into there.
+This transfer took several hours, but I then created a subdirectory in user/data called A549samples and moved all the lung samples into there.
 
 # Daily Progress 7/6/21
 
@@ -251,6 +251,8 @@ I then ran the following Nanoplot command on the command line:
 $ Nanoplot -o summary-plots-log-transformed --fastq /Users/millerv2/Desktop/A549samples/SGNex_A549_directcDNA_replicate1_run3.fastq.gz /Users/millerv2/Desktop/A549samples/SGNex_A549_directcDNA_replicate2_run1.fastq.gz
 
 The results written to the output directory summary-plots-log-transformed included several different plots and summaries for sequencing quality control.
+
+For the next step of this workflow I did FastQC on the raw reads using FastQC.  I already wrote a Snakemake rule for FastQC in my sample workflow so I took this framework and modified it slightly for the A549 sample data sets. I also plan on adding a rule for Nanoplot now above the FastQC rule now that I understood what the output looked like.
 
 
 
