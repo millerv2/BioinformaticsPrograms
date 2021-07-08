@@ -252,7 +252,33 @@ $ Nanoplot -o summary-plots-log-transformed --fastq /Users/millerv2/Desktop/A549
 
 The results written to the output directory summary-plots-log-transformed included several different plots and summaries for sequencing quality control.
 
-For the next step of this workflow I did FastQC on the raw reads using FastQC.  I already wrote a Snakemake rule for FastQC in my sample workflow so I took this framework and modified it slightly for the A549 sample data sets. I also plan on adding a rule for Nanoplot now above the FastQC rule now that I understood what the output looked like.
+For the next step of this workflow I did FastQC on the raw reads using FastQC.  I already wrote a Snakemake rule for FastQC in my sample workflow so I took this framework and modified it slightly for the A549 sample data sets. I also plan on adding a rule for Nanoplot now above the FastQC rule now that I understood what the output looked like.  
+
+# Daily Progress 6/7/21
+
+This morning I continued working on the Nanoseq workflow in Snakemake, but initially had some trouble linking up the directory on the cluster with the remote Github repo. 
+
+After some troubleshooting and help from Vishal, everything is connected up. The directory /data/millerv2/NanoseqSnakemake which can be reached from the login node contains the snakefile and any env/config files, while the samples are in a separate directory here: /data/millerv2/samples. I will also need to make separate folders for the output results. To set up all these specific directories it may be helpful to make a congif yaml file down the line like the one here:
+
+https://github.com/kopardev/CCBR_ATACseq/blob/master/config/config.yaml
+
+The full Github repo here for the ATACseq Snakemake workflow is a good resource to reference:
+
+https://github.com/kopardev/CCBR_ATACseq
+
+A few tidbits from the meeting with Vishal:
+
+- Down the line include config .yaml file to specify all the directories for the workflow, I/O
+
+- When running Snakemake workflow on interactive node you can request -90GB for FastQC, may not need end up needing all that memory 
+
+Tomorrow I plan on making sure I can get the first few steps of the workflow running, FastQC, and Nanoplot.
+
+
+
+
+
+
 
 
 
