@@ -274,6 +274,35 @@ A few tidbits from the meeting with Vishal:
 
 Tomorrow I plan on making sure I can get the first few steps of the workflow running, FastQC, and Nanoplot.
 
+# Daily Progress 6/9/21
+
+Today I got the Snakemake workflow successfully running FastQC and Nanoplot successfully.
+
+I met with Skyler and he helped me decide that for rules in the workflow where the executed program is not pre-installed on the cluster, the best strategy is to run that job in a docker/singularity container that you define. Then, you can just run the workflow with --use-singularity in addition to --use-envmodules.
+
+For the Nanoplot rule, since it wasn't available on the cluster, I defined the following docker under the container directive (from Skyler):
+
+container:
+        "docker://staphb/nanoplot:1.33.0"
+
+Then, I ran the workflow as follows:
+$ module load snakemake/6.5.3
+$ module load singularity/3.8.0
+
+$ snakemake --cores 1 --use-envmodules --use-singularity --singularity-args '-B /data/millerv2'
+
+Can use $ history | grep 'snakemake' to look back at previous snakemake commands you've run.
+
+# Daily Progress 6/19/21
+
+Today I created a .gitignore file for my workflow which specifies files or directories that should be intentionally ignored/untracked by Git. I put the .snakemake/ directory in here so that I don't unintentionally push any snakemake logs or singularity image (.simg) files to Github like I was previously. Can update this file as I go to include any files/directories that I don't care about tracking or pushing. Note, this is another hidden directory like .git, so will need to use $ ls -la to see and edit it.
+
+
+
+
+
+
+
 
 
 
