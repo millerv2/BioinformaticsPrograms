@@ -254,7 +254,7 @@ The results written to the output directory summary-plots-log-transformed includ
 
 For the next step of this workflow I did FastQC on the raw reads using FastQC.  I already wrote a Snakemake rule for FastQC in my sample workflow so I took this framework and modified it slightly for the A549 sample data sets. I also plan on adding a rule for Nanoplot now above the FastQC rule now that I understood what the output looked like.  
 
-# Daily Progress 6/7/21
+# Daily Progress 7/7/21
 
 This morning I continued working on the Nanoseq workflow in Snakemake, but initially had some trouble linking up the directory on the cluster with the remote Github repo. 
 
@@ -274,7 +274,7 @@ A few tidbits from the meeting with Vishal:
 
 Tomorrow I plan on making sure I can get the first few steps of the workflow running, FastQC, and Nanoplot.
 
-# Daily Progress 6/9/21
+# Daily Progress 7/9/21
 
 Today I got the Snakemake workflow successfully running FastQC and Nanoplot successfully.
 
@@ -293,12 +293,18 @@ $ snakemake --cores 1 --use-envmodules --use-singularity --singularity-args '-B 
 
 Can use $ history | grep 'snakemake' to look back at previous snakemake commands you've run.
 
-# Daily Progress 6/19/21
+# Daily Progress 7/19/21
 
 Today I created a .gitignore file for my workflow which specifies files or directories that should be intentionally ignored/untracked by Git. I put the .snakemake/ directory in here so that I don't unintentionally push any snakemake logs or singularity image (.simg) files to Github like I was previously. Can update this file as I go to include any files/directories that I don't care about tracking or pushing. Note, this is another hidden directory like .git, so will need to use $ ls -la to see and edit it.
 
+I then pushed all my changes to github. My repo now has the working snakefile which successfully runs FastQC and Nanoplot on input fq files, and the next step was to run some sort of trimming/filtering on the ONT reads using a trimmer program designed for Oxford Nanopore reads. The original candidate, Porechop, seems like it was unsupported and is now abandonware, as stated on the Readme here:
 
+https://github.com/rrwick/Porechop#readme
 
+As an alternative, we decided on using Nanofilt to remove short reads and the first 10 bases from all reads as they tend to be the most error-prone. Adapter trimming of long reads such as those output by Oxford Nanopore sequencers is not as important as for short read technologies because the adapters represent a much smaller relative proportion of the long reads (< 10% of the total read length (unlike illumina)). 
+
+Documentation here:
+https://github.com/wdecoster/nanofilt
 
 
 
