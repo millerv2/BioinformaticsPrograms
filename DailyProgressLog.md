@@ -306,7 +306,13 @@ As an alternative, we decided on using Nanofilt to remove short reads and the fi
 Documentation here:
 https://github.com/wdecoster/nanofilt
 
+# Daily Progress 7/20/21
 
+Today I finetuned a lot of my workflow, removed a lot of things that were previously hard-coded by linking up the config.yaml file. I also changed the structure of my workflow to match the cookie-cutter/recommend structure of a Snakemake workflow described here:
+
+https://github.com/snakemake-workflows/snakemake-workflow-template
+
+Right now, the workflow works for 4 rules, and the paths to the output directories and working directories can be specified in the config file so that someone can run it on their local file system.  I pushed these changes to Github and they can be viewed there.
 
 
 
