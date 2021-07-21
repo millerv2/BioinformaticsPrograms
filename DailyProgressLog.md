@@ -315,6 +315,26 @@ https://github.com/snakemake-workflows/snakemake-workflow-template
 Right now, the workflow works for 4 rules, and the paths to the output directories and working directories can be specified in the config file so that someone can run it on their local file system.  I pushed these changes to Github and they can be viewed there.
 
 
+# Daily Progress 7/21/21
+
+Today I finetuned my workflow further for the first htree rules, making various parameters that we're previously harccoded customizable in the key-value pairs of the config file. I also added log and message directives to all my rules as recommend after running $ snakemake --lint. 
+
+I also added params directives to rules within which I specified various output directories for those rules and then referenced those directories in the shell directive using {params.OUT_DIR}. I also redirected standard output and error the log file for rules as in the following example here:
+shell:
+        "fastqc -o {params.OUT_DIR} {input} &> {log} "
+
+Within other rules I also took parameters that were previously hard-coded and exposed them - ie made them readable/customizable from the config file - and then defined them in the params directive so they could be used in the shell commands. For example:
+
+params:
+        OUT_DIR = os.path.join(base_dir,"trimmed_reads"),
+        headcrop = config['headcrop'],
+        length = config['length']
+
+shell:'''
+NanoFilt -l {params.length} --headcrop {params.headcrop} < {input} > {params.OUT_DIR}/{wildcards.sample}.fastq
+''' 
+
+This way, if someone else wants to run Nanofilt with different parameters, they can specify them in the config file rather than here, allowing more customizability/reproducability.
 
 
 
