@@ -336,6 +336,25 @@ NanoFilt -l {params.length} --headcrop {params.headcrop} < {input} > {params.OUT
 
 This way, if someone else wants to run Nanofilt with different parameters, they can specify them in the config file rather than here, allowing more customizability/reproducability.
 
+# Daily Progress 7/22/21
+
+Today I added a fastqc_trimmed rule which takes the output files produced by Nanofilt (which filters out low quality/short reads) and performs fastqc on these trimmed reads. I then compared the fastqc quality reports produced on the raw/unfiltered reads to these reports on the filtered reads to see if several different quality concerns were addressed.
+
+I then began to write a rule for the actual read alignment to the reference genome, using minimap2.  This program is ideal for read alignment for longer reads produced by third generation sequencers as it can be fine-tuned to use particular seeds for the alignment that optimize performance and sensitivity. The parameters/commands to do so are described here in the 'Use Cases' section:
+
+https://github.com/lh3/minimap2
+
+For direct RNA seq as is the case for the two test samples I've been using, the following command is described:
+
+$ minimap2 -ax splice -uf -k14 ref.fa direct-rna.fq > aln.sam 
+
+My minimap2 rule runs sucessfully but it takes over an hour to run. As of right now I've just been running Snakemake on the command line on an interactive node but going forward now that I'm performing some more computationally intensive jobs I should develop a cluster.json file with keys for the jobs and values for the resources to be allocated.
+
+Now that I've got several rules in my snakemake file I'm planning on modularizing it - ie putting certain rules in their own snakemake (.smk) files - and referencing them with include statements at the top of the snakefile.  I plan on doing this tomorrow along with setting up the cluster.json file.
+
+
+
+
 
 
 
