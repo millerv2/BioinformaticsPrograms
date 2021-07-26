@@ -352,6 +352,13 @@ My minimap2 rule runs sucessfully but it takes over an hour to run. As of right 
 
 Now that I've got several rules in my snakemake file I'm planning on modularizing it - ie putting certain rules in their own snakemake (.smk) files - and referencing them with include statements at the top of the snakefile.  I plan on doing this tomorrow along with setting up the cluster.json file.
 
+# Daily Progress 7/23/21
+
+Today I modularized the workflow further by adding additional snakemake (.smk) files, one containing quality control rules called qc.smk, and one containing alignment rules called align.smk.  I may add one for read trimming/filtering as well, but for now this will suffice to keep the main Snakefile from being to lengthy now that the rule all has quite a few output files. 
+
+I also had a few more key value pairs to my config file, such as a genome key so that a user could specify the genome they'd like to use for the read alignment step using Minimap2.  Right now there is the most update to date human and mouse genomes in a directory in my /data/millerv2 directory and the values in the key value pair in config is set to the path to those files.  
+
+Seeing that the alignment step is fairly computationally intensive and took a long time to run just via the command line on an interactive node, so next step is to set up the cluster.json file which has keys for the jobs and the values for the resources to be allocated.
 
 
 
