@@ -365,12 +365,14 @@ Seeing that the alignment step is fairly computationally intensive and took a lo
 
 Today I took a step back and did a bit of a review day, looking over my daily progress log, my notebook, and snakemake workflow so far, as well as doing a bit more literature reading on Oxford Nanopore technologies and the data processing workflows that are optimized for their long read data outputs. I'm trying to figure out if there are any workflow steps or parameters that are missing from the Nanoseq NextFlow workflow that we can use enhance the workflow and differentiate it a bit.
 
+# Daily Progress 7/27/21
 
+This morning I took the time to review this Linux introduction here:
 
+https://hpc.nih.gov/training/handouts/Introduction_to_Linux.pdf
 
+I've been using Linux/the command line for a while now but there are still some commands and features I'm not fully acquanted with, so I thought this review would be worthwhile.
 
-
-
-
+I also managed to set up my cluster.json file which specifies the resources that should be allocated for each rule, as well as default resources to be allocated if a rule does not have a key in the json file. With Skyler's help, I wrote a bash script that submits the snakemake workflow for submission on the cluster called run.sh. This script makes a new script with all the proper paramters and inputs. I submitted the job and it is currently pending/waiting in queue.
 
 
