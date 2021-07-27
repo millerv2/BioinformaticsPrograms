@@ -361,8 +361,9 @@ I also had a few more key value pairs to my config file, such as a genome key so
 Seeing that the alignment step is fairly computationally intensive and took a long time to run just via the command line on an interactive node, so next step is to set up the cluster.json file which has keys for the jobs and the values for the resources to be allocated.
 
 
+# Daily Progress 7/26/21
 
-
+Today I took a step back and did a bit of a review day, looking over my daily progress log, my notebook, and snakemake workflow so far, as well as doing a bit more literature reading on Oxford Nanopore technologies and the data processing workflows that are optimized for their long read data outputs. I'm trying to figure out if there are any workflow steps or parameters that are missing from the Nanoseq NextFlow workflow that we can use enhance the workflow and differentiate it a bit.
 
 
 
