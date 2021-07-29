@@ -375,4 +375,22 @@ I've been using Linux/the command line for a while now but there are still some 
 
 I also managed to set up my cluster.json file which specifies the resources that should be allocated for each rule, as well as default resources to be allocated if a rule does not have a key in the json file. With Skyler's help, I wrote a bash script that submits the snakemake workflow for submission on the cluster called run.sh. This script makes a new script with all the proper paramters and inputs. I submitted the job and it is currently pending/waiting in queue.
 
+# Daily Progress 7/28/21
 
+Today with Vishal's help we updated the run.sh file which we're using to submit the Master job to the cluster which then submits the different rules as their own child jobs. More specifically, along with a WORKDIR variable that the user can specify when running the script, they can also specify as RUNMODE as a second parameter, and can run the pipeline as dryrun, unlock, or cluster.  
+
+Now, to dry-run the pipeline we can run:
+
+$ ./run.sh /data/millerv2 dryrun
+
+./ calls and runs an executable that is in your $PATH. Remember on Linux/Unix,nearly any file can be executable, the file ending just must describe what or how the file is "excecuted".
+
+Initially this wasn't running properly because I had to update the varaible samples in the config file to specify a full path to the samples.tsv file for it to find it.
+
+Another change we made to make testing of the pipeline more effective is creating two dummy.fastq.gz files which are subsets of the first 1000 reads (4000 lines) from the original fastq files in the samples directory. I modified the table (samples.tsv) to contain the names of these dummy fastq files which we will use for running.  
+
+Today I'm going to actually try to run the complete job, ie run the pipeline with the following command:
+
+$ ./run.sh /data/millerv2 cluster
+
+Can check on the jobs with $sjobs, $data job ID, $squeue -u millerv2, jobload, jobhist. The page and video here are a good review on monitoring jobs submitted to the cluster.
