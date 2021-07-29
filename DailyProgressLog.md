@@ -385,7 +385,7 @@ $ ./run.sh /data/millerv2 dryrun
 
 ./ calls and runs an executable that is in your $PATH. Remember on Linux/Unix,nearly any file can be executable, the file ending just must describe what or how the file is "excecuted".
 
-Initially this wasn't running properly because I had to update the varaible samples in the config file to specify a full path to the samples.tsv file for it to find it.
+Initially this wasn't running properly because I had to update the variable samples in the config file to specify a full path to the samples.tsv file for it to find it.
 
 Another change we made to make testing of the pipeline more effective is creating two dummy.fastq.gz files which are subsets of the first 1000 reads (4000 lines) from the original fastq files in the samples directory. I modified the table (samples.tsv) to contain the names of these dummy fastq files which we will use for running.  
 
@@ -394,3 +394,20 @@ Today I'm going to actually try to run the complete job, ie run the pipeline wit
 $ ./run.sh /data/millerv2 cluster
 
 Can check on the jobs with $sjobs, $data job ID, $squeue -u millerv2, jobload, jobhist. The page and video here are a good review on monitoring jobs submitted to the cluster.
+
+Before the jobs runs, should check disk space using:
+
+After the jobs runs, should log CPU utilization, memory utilization, and wlal time. This will give you an idea of how many resources to be allocated for a particular job/rule in the workflow.
+
+First time submitting a job you may need to request ample resources, but then after running it can check CPUs, memory, walltime and adjust as needed for future jobs.
+
+# Daily Progress 7/29/21
+
+Tools for monitoring Biowulf jobs:
+1) Before running/submitting, checkquota for disk space
+2) Look at .o and .e files from jobs for trouble-shooting.
+3) sjobs, squeue show status of jobs
+4) jobload -u shows CPU and mem usage for your jobs. can use jobload -j job_id to look at this info for a particular job.
+5) Jobhist job_id shows utilization after jobs ends for that job
+6) Dashboard on nih website
+
