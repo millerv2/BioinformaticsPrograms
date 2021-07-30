@@ -411,3 +411,21 @@ Tools for monitoring Biowulf jobs:
 5) Jobhist job_id shows utilization after jobs ends for that job
 6) Dashboard on nih website
 
+I met with Skyler to help with submitting the job to the cluster successfully. A few things we changed that are worth noting:
+1) Nanofilt, a read trimming/filtering program we are using, requires the fastq files to be unzipped to run. In the filter rule, I added two pipes to the command, one after a gunzip which unzips in the input.fastq.gz files and then a gzip at the end to zip them back up after trimming/filtering.
+2) We created a new subdirectory called .tests which is in the NanoseqSnakemake directory and contains the small .fastq files to be used for testing. This samples directory was added as a variable in the config file called samples_dir and was added to the paths in our different rules so that we could point to those files. I also changed the corresponding sample names in the samples.tsv file in config.
+3) We also modified the run.sh file which we use to submit the workflow for execution.  The submission command now takes three arguments: runmode($1), workdir($2), and inputdir($3). Runmode specifies whether to dry run or actually submit the master job to the cluster for execution of it and all its child jobs, the workdir is the path to the output directory, and the inpudir should be the path to the folder containing the input fastq files, in .gz format.
+
+The actual commands I ran to submit the workflow for dryrun, and for execution are:
+$ ./run.sh dryrun /data/millerv2 /data/millerv2/NanoseqSnakemake/.tests
+$ ./run.sh cluster /data/millerv2 /data/millerv2/NanoseqSnakemake/.tests
+
+The workflow ran successfully using these commands. When submitted to the cluster for execution, the workflow ran in 18 minutes, 21 seconds. Taking a closer look at the user dashboard on hpc.nih.gov I took the jobids for the sub jobs and ran jobhist job_id commands to get a sense of how much memory/time different sub-jobs/rules took to run on the cluster so that I could adjust their resource allocations going forward.
+
+FastQC_raw took only around 20 seconds to run and used very little memory. Same for FastQC_trimmed rules. Same for Nanofilt.
+
+Nanofilt, job id 20233596, took 36 seconds to run, and used .4GB of the allotted 24GB/node.
+
+Minimap used 19.4GB memory, and took 2 mins 15 seconds to run with 32 CPUs allocated but only 2 used for job_id 20234442. For the other minimap job_id 20234434, it used 19.1GB memory and took 2 mins 5 seconds to run with max only 2 of allocated 32 CPUs being used.
+
+The caveat when looking at this resource usage for different rules is that we only used two .fastq files as test input, and they were very small .fastq files - only a couple thousand reads long.  
