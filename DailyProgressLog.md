@@ -444,6 +444,12 @@ The main Snakefile here just contains the rule all, which specifies all the outp
  
 The run.sh file is the executable that submits the Snakefile job for execution either dryrun or on the cluster. It contains information about submitting the job to SLURM (#SBATCH parameters) and also the actual Snakemake commands, including the specification of the general configfile and the cluster config file. Upon execution this file creates and submits the batch script called submit.sh.
 
+Today I added a sam_to_sorted_bam rule to my rules/align.smk file which employs Samtools to take the minimap output (.sam alignment file) and convert it to .bam format as well as sort it by coordinates. I also requested various mapping metrics using Samtools to get a summary of the mapping.  I dry-ran and then submitted the workflow and it ran successfully.
+
+Now that the genome alignments for the samples were in proper sorted bam format, the next step is to use these bam files for bigWig and bigBed coverage tracks for visualization. I haven't used either of these programs before so I spent the rest of the afternoon looking over the documentation here and going through some featured tutorials:
+
+https://bedtools.readthedocs.io/en/latest/
+
 
 
 
