@@ -429,3 +429,27 @@ Nanofilt, job id 20233596, took 36 seconds to run, and used .4GB of the allotted
 Minimap used 19.4GB memory, and took 2 mins 15 seconds to run with 32 CPUs allocated but only 2 used for job_id 20234442. For the other minimap job_id 20234434, it used 19.1GB memory and took 2 mins 5 seconds to run with max only 2 of allocated 32 CPUs being used.
 
 The caveat when looking at this resource usage for different rules is that we only used two .fastq files as test input, and they were very small .fastq files - only a couple thousand reads long.  
+
+# Daily Progress 7/30/21 
+
+As of today, I have a properly functioning Oxford Nanopore RNA-seq data processing workflow, with an initial raw read Fastqc quality check step, a plotting QC step (Nanoplot), a trimming/filtering step, an additional Fastqc quality check on the trimmed/filtered reads, and a genome alignment step with Minimap2.  The workflow has several working parts so I figured it would make sense to make sure I understand what each file is doing and where everything is.
+
+The directory that is linked up the remote repo on Github is NanoseqSnakemake. In here, there are several subdirectories. The config subdirectory contains a config yaml file which defines everything to configure th workflow on a global scale. In here there is a path to a table containing the samples in .tsv format, a path to a base_dir which will be the output directory for various rule outputs, and a sample_dir varaible which defines the path to the samples used as input. I also have variables/ key-value paris for different parameters for certain rules and a path to a genome used in the alignment step.
+
+In another folder called Resources, it contains resources necessary for running workflow. The cluster.json file here has key value pairs for different rules and the number of resources (memory, time, threads, etc) that should be allocated for that rule when it is submitted as sub/child job for execution on the cluster.
+
+In the workflow directory there is the actual Snakefile and various other .smk files which contain different rules in the rules directory, which are called in the main Snakefile using the include directive. At the top of the Snakefile we define different variables such as the sample directory and the base_dir by accessing those values from the config file where we defined them as key/value pairs. How does th e snakefile know what config is? Where do we define this? Maybe built-in global variable config to snakemake? Yes, but we're just using the --configfile option in the run.sh when actually running Snakemake to provide it with the path to the config file.
+
+The main Snakefile here just contains the rule all, which specifies all the outputs we want to obtain from our various rules. note that if a particular program produces many output files, we should specify all of them in the output directive for that particular rule... but in the rule all we only have to specify the output file that is produced last (most recently) to obtain all of those outputs.
+ 
+The run.sh file is the executable that submits the Snakefile job for execution either dryrun or on the cluster. It contains information about submitting the job to SLURM (#SBATCH parameters) and also the actual Snakemake commands, including the specification of the general configfile and the cluster config file. Upon execution this file creates and submits the batch script called submit.sh.
+
+
+
+
+
+
+
+
+
+
