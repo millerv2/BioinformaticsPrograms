@@ -450,6 +450,14 @@ Now that the genome alignments for the samples were in proper sorted bam format,
 
 https://bedtools.readthedocs.io/en/latest/
 
+# Daily Progress 8/2/21
+
+This morning I reviewed the bedtools documentation and worked on writing a rule for producing coverage tracks for visualization. 
+
+
+
+
+
 
 
 
