@@ -454,7 +454,26 @@ https://bedtools.readthedocs.io/en/latest/
 
 This morning I reviewed the bedtools documentation and worked on writing a rule for producing coverage tracks for visualization. 
 
+I reviewed the various different file formats that we are using for this rule, including BAM, bed, and bigBED, and what programs/commands are needed to convert between them.
 
+http://genome.ucsc.edu/FAQ/FAQformat.html#format1
+
+First, I had to write a rule using bedtools to go from .BAM format, the compressed binary version of sequence alignment map (.SAM) format output by minimap2, to .bed format. Bed, or browser extensible format, provides a way of defining data lines to be displayed/visualized in an annotation track. It requires three fields, chrom, chromstart, and chromend, and several other optional fields. To convert the bam files to bed, I used bedtools and wrote a rule called bedtools_bam_to_bed in the bedtools.smk file in workflow/rules.
+
+Next, I had to convert the bed files to bigBed format, using the program bedtoBigBed from the ucsc utilities module. BigBed files are also indexed binary format but only protions of th efiles are needed to display a particular region for visualization, so that are faster than regular bed files. The rule bedtobig bed in workflow/rules/bedtools.smk converts the bed files to bigBed format after sorting the bed files. 
+
+For the genome to which the track will be referenced, you need to extract chromosomze sizes and provide this information when converting to bigBed format. I used a samtools command below to extract the chromosomze sizes and put the output in a file chrom.sizes:
+$ samtools faidx {input.ref}
+$ cut -f1,2 {input.ref}.fai > {output}
+
+This rule is called samtools_get_chrom_sizes and it's located in workflow/rules/align.smk.
+
+I successfully dry-ran and then ran the workflow on the cluster with these added rules. The workflow now produces proper BigBed coverage tracks for visualizzation, but in the next step tomorrow I'll work on producing bigWig tracks as well.
+
+
+
+age here describes the syntax for converting between 
+http://bioinformatics.plantbiology.msu.edu/display/BIOIN/Converting+BED+to+bigBED+Format
 
 
 
