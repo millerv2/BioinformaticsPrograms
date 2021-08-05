@@ -468,21 +468,40 @@ $ cut -f1,2 {input.ref}.fai > {output}
 
 This rule is called samtools_get_chrom_sizes and it's located in workflow/rules/align.smk.
 
-I successfully dry-ran and then ran the workflow on the cluster with these added rules. The workflow now produces proper BigBed coverage tracks for visualizzation, but in the next step tomorrow I'll work on producing bigWig tracks as well.
+I successfully dry-ran and then ran the workflow on the cluster with these added rules. The workflow now produces proper BigBed coverage tracks for visualization, but in the next step tomorrow I'll work on producing bigWig tracks as well.
+
+
+# Daily Progress 8/3/21
+
+This morning I added rules for going from bam files to bedgraph files, and then from bedgraph to bigWig tracks for visualization. I dryran and then submitted the workflow for execution on the cluster and it ran successfully.
+
+The next step of the workflow is transcript reconstruction and quantification, the first step of what can be considered RNA-specific downstream analysis. The Nanoseq pipeline uses bambu, an R package, to reconstruct and quantify transcripts in a single run, and Stringtie, which produces individual transcript assemblies for each sample and then merges them together to get a more comprehensive transcript profile. 
+
+I began with Stringtie2 by writing an sample_transcript_assembly rule. 
+
+Downloading genome:
+
+wget http://ngi-igenomes.s3.amazonaws.com/igenomes/Homo_sapiens/NCBI/GRCh38/Annotation/Genes/genes.gtf
+
+Downloading reference .gtf annotation:
+
+wget http://ngi-igenomes.s3.amazonaws.com/igenomes/Homo_sapiens/NCBI/GRCh38/Sequence/WholeGenomeFasta/genome.fa
 
 
 
-age here describes the syntax for converting between 
-http://bioinformatics.plantbiology.msu.edu/display/BIOIN/Converting+BED+to+bigBED+Format
+# Daily Progress 8/4/21
 
+This morning I met with Vishal to make an overall gameplan for the next few weeks in terms of meeting major milestones. By the end of this week I want to have the first iteration of the workflow done, start to finish. This means having the gene/transcript assembly with Stringtie done, the gene and transcript quantification producing count matrices with featureCounts, differential expression with DeSeq2, and final QC with MultiQC.
 
+I first wrote the rule for Stringtie individual transcript assembly, then a rule for merging their assemblies, and a final rule to run Stringtie again using the merged.gtf file as the reference transcriptome.
 
+I then looked at the FeatureCounts documentation here:
 
+http://bioinf.wehi.edu.au/featureCounts/
 
+https://manpages.debian.org/testing/subread/featureCounts.1.en.html
 
+Using this as a guide, I wrote a FeatureCounts rule in the transcript_quant.smk snakemake file to produce counts_gene.txt and counts_transcript.txt files which are count matrices for genes and transcripts.
 
-
-
-
-
+The next step is to perform MultiQC as the end of the workflow.
 
