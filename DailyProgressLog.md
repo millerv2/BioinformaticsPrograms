@@ -505,3 +505,6 @@ Using this as a guide, I wrote a FeatureCounts rule in the transcript_quant.smk 
 
 The next step is to perform MultiQC as the end of the workflow.
 
+After finishing the MultiQC step, Vishal and I discussed providing the user the utility to select the specific type of long read sequencing technology (eg direct RNA, cDNA, etc), as a result running different parameters for each program that are tailored to that technology. Downstream we could then running PCA or other unsupervised methods to see if gene expression is more related by read technology or tissue of origin.
+
+
