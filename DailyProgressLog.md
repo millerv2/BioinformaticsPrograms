@@ -523,7 +523,7 @@ First, in my samples.tsv table, I added a column called application, which speci
 
 The next step is to add a differential expression analysis rule using DESeq2.  DESeq2 is an R package, so I'll have to include a script directive in my rule which loads and executes DESeq2 commands and then have an envmodules directive to load in R to my environment.  The script used in the nextflow workflow is in the bin folder and is called run_deseq2.r.  Before really diving into understanding this script I took a look at the DESeq2 documentation here and will spend some more time with it tomorrow:
 
-https://bioconductor.org/packages/release/bioc/html/DESeq2.html
+http://127.0.0.1:15080/library/DESeq2/doc/DESeq2.html
 
 
 
