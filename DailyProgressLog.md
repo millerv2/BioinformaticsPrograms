@@ -507,4 +507,23 @@ The next step is to perform MultiQC as the end of the workflow.
 
 After finishing the MultiQC step, Vishal and I discussed providing the user the utility to select the specific type of long read sequencing technology (eg direct RNA, cDNA, etc), as a result running different parameters for each program that are tailored to that technology. Downstream we could then running PCA or other unsupervised methods to see if gene expression is more related by read technology or tissue of origin.
 
+# Daily Progress 8/5/21
+
+I began this morning by reviewing the MultiQC docs here:
+
+https://multiqc.info/docs/
+
+I wrote and executed a Multiqc rule in the multiqc.smk snakemake file. I might move this rule to the qc.smk file where I have fastqc and Nanoplot. I included as input all the outputs from the previous rules just to ensure Multiqc runs last and provides reports for all the relevant output files.  
+
+I dryran and then cluster-submitted the workflow and it ran successfully, taking about 30 minutes to run. The multiqc step takes the longest to run, taking about 16 minutes.
+
+Now that I've got every part of the workflow set up except for differential expression analysis, I worked on adding a feature to the workflow where based on the type of sequencing technology (eg directRNA vs cDNA) for the sample, different commands will run for different programs. I started with minimap2.
+
+First, in my samples.tsv table, I added a column called application, which specifies the type of sequencing technology used (directRNA vs cDNA). So this table now had a sample name column, and a sequencing type column. Next, in the config file I added a key called minimap_options and nested two keys within it, one for directRNA and one for cDNA, and the values for these keys were different parameters/options for minimap2. Then, I had to find a way for the rule to extract this information from the samples table and feed it to the shell command. To do this I added a params directive to the minimap rule and used a lambda function to select the application type corresponding to the input sample for the rule, and then search up the settings value for that application type in the config file. Then I call params.options in the shell itself. I dryran and cluster-submitted the workflow and it ran successfully.
+
+The next step is to add a differential expression analysis rule using DESeq2.  DESeq2 is an R package, so I'll have to include a script directive in my rule which loads and executes DESeq2 commands and then have an envmodules directive to load in R to my environment.  The script used in the nextflow workflow is in the bin folder and is called run_deseq2.r.  Before really diving into understanding this script I took a look at the DESeq2 documentation here and will spend some more time with it tomorrow:
+
+https://bioconductor.org/packages/release/bioc/html/DESeq2.html
+
+
 
