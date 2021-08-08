@@ -535,6 +535,6 @@ http://127.0.0.1:15080/library/DESeq2/doc/DESeq2.html#countmat
 
 The object class used by the DESeq2 package to store the read counts and the intermediate estimated quantities during statistical analysis is the DESeqDataSet. This data set and its contained information can then be used to run statistical tests. The design formula specifies the variables which will be used in the statistical modeling. For me, this would be either treatment, disease vs control, or tissue type.
 
-I spent a while workign with the R script from nextflow's workflow for running DESeq and modified it to read in my data and run DESeq with it. I'll continue working on this over the weekend and next week to have my workflow done for its first iteration from read mapping to differential expression analysis.
+I spent a while working with the R script from nextflow's workflow for running DESeq and modified it to read in my data and run DESeq with it. I'll continue working on this over the weekend and next week to have my workflow done for its first iteration from read mapping to differential expression analysis.
 
 
