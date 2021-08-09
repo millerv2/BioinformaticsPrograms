@@ -544,4 +544,8 @@ Most of this morning I spent experimenting with the runDESeq R script to adapt i
 $ head -n 2000 test1.fastq > test3.fastq
 $ head -n 2000 test2.fastq > test4.fastq
 
-I then dryran and cluster-submitted the workflow with these new sample files being taken as input.
+I then dryran and cluster-submitted the workflow with these new sample files being taken as input. It worked properly.
+
+I then reran the DESeq2 R-script now that I had two treatments and two replicates and it ran successfully - ie I was able to create a DESeq data set and write the results to an output file.
+
+
