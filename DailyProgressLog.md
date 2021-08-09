@@ -537,4 +537,11 @@ The object class used by the DESeq2 package to store the read counts and the int
 
 I spent a while working with the R script from nextflow's workflow for running DESeq and modified it to read in my data and run DESeq with it. I'll continue working on this over the weekend and next week to have my workflow done for its first iteration from read mapping to differential expression analysis.
 
+# Daily Progress 8/9/21
 
+Most of this morning I spent experimenting with the runDESeq R script to adapt it to successfully read in my counts matrix and samples table into a DESeq dataset which could then be used for douwnstream analysis / statistical tests.  I was getting an checkForExperimentalReplicates(object, modelMatrix) error because I only had two sample files and they were both in the same group. I decided to create two more dummy/test files test3.fq.gz and test4.fq.gz and added them to the samples.tsv file in the config.  To make these files I simply took the first 2000 lines from each of the other sample files using:
+
+$ head -n 2000 test1.fastq > test3.fastq
+$ head -n 2000 test2.fastq > test4.fastq
+
+I then dryran and cluster-submitted the workflow with these new sample files being taken as input.
