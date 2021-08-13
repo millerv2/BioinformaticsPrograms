@@ -548,4 +548,15 @@ I then dryran and cluster-submitted the workflow with these new sample files bei
 
 I then reran the DESeq2 R-script now that I had two treatments and two replicates and it ran successfully - ie I was able to create a DESeq data set and write the results to an output file.
 
+# Daily Progress 8/11/21
+Today I worked on adding a DESeq2 rule which called the R script to accept specified and output the DESeq data set results. I had to modify a few things in the R script to have it properly function within the rule but it now works and takes two command line arguments in the shell directive of the rule, the path to the gene counts, and the path to the sample information table.
+
+# Daily Progress 8/12/21 
+Today I added a data viz rule to the Snakemake workflow which employs an R script to produce a PCA plot, a sample distance heatmap, and a gene heatmap of the 50 most variable genes across the samples.  To do so, I used the following R packages: DESeq2, pheatmap, genefilter. The script is called pca_and_heatmaps.R and is called in the scripts directive, taking as standard input the path to the gene counts matrix, the path to the samples table, and the output directory path.
+
+After a lot of experimentation and tweaking with the rule, it now works and outputs a PCA plot, a sample heatmap, and a gene heatmap for the 50 genes whose expression varies the most between the samples. 
+
+
+
+
 
