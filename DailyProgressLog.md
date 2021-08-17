@@ -551,10 +551,28 @@ I then reran the DESeq2 R-script now that I had two treatments and two replicate
 # Daily Progress 8/11/21
 Today I worked on adding a DESeq2 rule which called the R script to accept specified and output the DESeq data set results. I had to modify a few things in the R script to have it properly function within the rule but it now works and takes two command line arguments in the shell directive of the rule, the path to the gene counts, and the path to the sample information table.
 
-# Daily Progress 8/12/21 
+# Daily Progress 8/12/21-8/13/21
 Today I added a data viz rule to the Snakemake workflow which employs an R script to produce a PCA plot, a sample distance heatmap, and a gene heatmap of the 50 most variable genes across the samples.  To do so, I used the following R packages: DESeq2, pheatmap, genefilter. The script is called pca_and_heatmaps.R and is called in the scripts directive, taking as standard input the path to the gene counts matrix, the path to the samples table, and the output directory path.
 
-After a lot of experimentation and tweaking with the rule, it now works and outputs a PCA plot, a sample heatmap, and a gene heatmap for the 50 genes whose expression varies the most between the samples. 
+After a lot of experimentation and tweaking with the rule, it now works and outputs a PCA plot, a sample heatmap, and a gene heatmap for the 50 genes whose expression varies the most between the samples.  
+
+# Daily Progress 8/14/21
+Today I met with Skyler to take a look at the workflow in its current state and discuss plans going forward to improve its completeness, now that it runs from read qc to differential expression analysis and the foundation is paved. The next few steps are:
+
+- Run the entire workflow with full-sized fastq inputs rather than dummy files. Record number of resources each job needed and update the cluster.json
+- Assuming all goes well, go through the entire workflow start to end and examine each line of code to make sure there isn't any remaining functionality that is hard-coded. To double check this I can clone the git repository in /scratch and run it there.
+- Another possible check for the validity of the workflow is to clone the Nextflow Nanoseq workflow and run it on the same inputs, and then compare the outputs with what I get running the workflow in Snakemake.
+- If time permits, update the Snakemake dataviz rule that currently generates a PCA plot and heatmaps to make interactive plots using plotly. Skyler has a script that can be adapted.
+
+I also took some time today to update the .readme page on the Github repo millerv2/NanoseqSnakemake to provide an overview of the workflow steps and also a section with overall instructions for running the workflow. 
+
+# Daily Progresss 8/17/21
+
+This morning I listened in on the Bioinformatics Project Discussion presentation by Shen about using Fastq screen tool for assessing bacterial contamination in DNA/RNA samples.  Instead of just mapping against a single (human) genome, when genome of origin requires confirmation mapping against multiple genomes is advisable for detecting contamination. Fastq screen works by quantifying the proportion of reads that map to a panel of reference genomes (eg mouse, bacterial, human). Interesting factor to consider that if overall sequence alignment is low perhaps some of the reads that arent mapping to human genome are of different species of origin. 
+
+
+
+
 
 
 
